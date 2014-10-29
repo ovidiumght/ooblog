@@ -1,0 +1,4 @@
+om_blog:
+    resource: "@OMBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+

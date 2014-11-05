@@ -40,4 +40,9 @@ class Post
     {
         return $this->comments;
     }
+
+    public function getType()
+    {
+        return $this->postType->getType();
+    }
 }

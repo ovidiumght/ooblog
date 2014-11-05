@@ -16,6 +16,9 @@ class PostTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->postType->canPostComments());
     }
 
-
+    public function testItGetsTheRightType()
+    {
+        $this->assertEquals('post',$this->postType->getType());
+    }
 }
  

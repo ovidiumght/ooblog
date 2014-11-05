@@ -16,6 +16,11 @@ class PageTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->postType->canPostComments());
     }
 
+    public function testItGetsTheRightType()
+    {
+        $this->assertEquals('page',$this->postType->getType());
+    }
+
 
 }
  

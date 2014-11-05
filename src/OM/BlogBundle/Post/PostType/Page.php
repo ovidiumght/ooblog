@@ -9,4 +9,8 @@ class Page implements PostType
         return false;
     }
 
-} 
+    public function getType()
+    {
+        return 'page';
+    }
+}

@@ -30,5 +30,20 @@ class AdminTest extends \PHPUnit_Framework_TestCase
 
         $user->commentOn($post, new CommentVo(10,'test_comment'));
     }
+
+    public function testItReturnsTrueWhenItWritesAPost()
+    {
+        $postType = new \OM\BlogBundle\Post\PostType\Post();
+        $this->assertTrue($this->admin->writePost('content',$postType));
+    }
+
+    public function testItCanWriteAPost()
+    {
+        $postType = new \OM\BlogBundle\Post\PostType\Post();
+        $this->admin->writePost('content',$postType);
+
+
+    }
+
 }
  

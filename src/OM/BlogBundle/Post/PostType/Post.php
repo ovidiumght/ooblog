@@ -9,4 +9,8 @@ class Post implements PostType
         return true;
     }
 
-} 
+    public function getType()
+    {
+        return 'post';
+    }
+}

@@ -48,7 +48,7 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
     }
 
     /**
-     * @expectedException  OM\BlogBundle\Exception\UserCannotPostException
+     * @expectedException  \OM\BlogBundle\Exception\UserCannotPostException
      *
      */
     public function testItCannotAddCommentOnPage()

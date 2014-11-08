@@ -6,7 +6,6 @@ use Post\Post;
 
 class PostFactory
 {
-
     public function create($data)
     {
         if(!isset($data['type'])) {

@@ -8,9 +8,9 @@ use Post\Post;
 
 class User
 {
-    protected $userName;
+    protected $id;
 
-    protected $userId;
+    protected $userName;
 
     protected $canPost = true;
 
@@ -30,7 +30,7 @@ class User
             throw new UserCannotPostException('The user is not allowed to comment on this post');
         }
 
-        $post->addComment($this->userId,$comment);
+        $post->addComment($this->id,$comment);
 
         return true;
     }

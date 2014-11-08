@@ -1,9 +1,11 @@
 <?php
 
 use Post\PostType\Post;
+use Post\PostType\PostType;
 
 class PostTest extends PHPUnit_Framework_TestCase
 {
+    /** @var  PostType */
     protected $postType;
 
     public function setUp()

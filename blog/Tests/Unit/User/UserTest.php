@@ -7,8 +7,9 @@ use \Comment\CommentVo;
 
 class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
+    const POST_TITLE = "TEST POST TITLE";
 
-    protected $username = 'ovidiu';
+    protected $username = 'test_username';
 
     /** @var  \User\User */
     protected $user;
@@ -17,7 +18,7 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
     public function setUp()
     {
-        $this->user = new \User\User($this->username);
+        $this->user = new User($this->username);
     }
 
     public function testItCanBeCreated()
@@ -27,11 +28,10 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
     public function testItCanCommentOnPost()
     {
-        $postTitle = 'test_post';
         $comment   = new CommentVo($this->userId,'test_comment');
 
         $postType = new \Post\PostType\Post();
-        $post = new Post($postTitle,$postType);
+        $post = new Post(self::POST_TITLE,$postType);
         $user = new User($this->username);
 
         $this->assertTrue($user->commentOn($post,$comment));
@@ -43,13 +43,13 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
      */
     public function testItCannotCommentIfHeIsBlocked()
     {
-        $postTitle = 'test_post';
         $comment = 'test_comment';
 
-        $post = new \Post\Post($postTitle, new \Post\PostType\Post());
+        $post = new Post(self::POST_TITLE, new \Post\PostType\Post());
 
         $this->user->blockComments();
         $this->user->commentOn($post,$comment);
     }
+
 }
  

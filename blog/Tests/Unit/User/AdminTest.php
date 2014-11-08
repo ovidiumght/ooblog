@@ -10,11 +10,14 @@ use User\User;
 class AdminTest extends \PHPUnit_Framework_TestCase
 {
 
+    const POST_TITLE = "TEST POST TITLE";
+
+    /** @var  Admin */
     protected $admin;
 
     public function setUp()
     {
-        $this->admin = new Admin('ovidiu');
+        $this->admin = new Admin('test_username');
     }
 
     /**
@@ -31,19 +34,39 @@ class AdminTest extends \PHPUnit_Framework_TestCase
         $user->commentOn($post, new CommentVo(10,'test_comment'));
     }
 
-    public function testItReturnsTrueWhenItWritesAPost()
+
+    public function testItCanWritePost()
     {
-        $postType = new \Post\PostType\Post();
-        $this->assertTrue($this->admin->writePost('content',$postType));
+        $post = $this->writePost(self::POST_TITLE);
+
+        $this->assertCount(1,$this->admin->getPosts());
+        $this->assertSame(array($post), $this->admin->getPosts());
+
     }
 
-    public function testItCanWriteAPost()
+    public function testItCanCountPosts()
     {
-        $postType = new \Post\PostType\Post();
-        $this->admin->writePost('content',$postType);
+        $this->assertEmpty($this->admin->getPosts());
 
+        $this->writePost(self::POST_TITLE);
+        $this->writePost(self::POST_TITLE);
+
+        $this->assertEquals(2,$this->admin->getPostsCount());
 
     }
+
+    /**
+     * @param $postTitle
+     * @return Post
+     */
+    protected function writePost($postTitle)
+    {
+        $post = new Post($postTitle, new \Post\PostType\Post());
+        $this->admin->write($post);
+        return $post;
+    }
+
+
 
 }
  

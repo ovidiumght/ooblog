@@ -1,9 +1,12 @@
 <?php
 
 use Post\PostType\Page;
+use Post\PostType\PostType;
+
 
 class PageTest extends PHPUnit_Framework_TestCase
 {
+    /** @var  PostType */
     protected $postType;
 
     public function setUp()

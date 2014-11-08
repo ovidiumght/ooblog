@@ -1,9 +1,11 @@
 <?php
 
+namespace Tests\Unit\Post\PostType;
+
 use Post\PostType\Post;
 use Post\PostType\PostType;
 
-class PostTest extends PHPUnit_Framework_TestCase
+class PostTest extends \PHPUnit_Framework_TestCase
 {
     /** @var  PostType */
     protected $postType;

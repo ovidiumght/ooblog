@@ -1,6 +1,10 @@
 <?php
 
-class BlogServiceTest extends PHPUnit_Framework_TestCase
+namespace Tests\Unit\Service;
+
+use Service\PostService;
+
+class PostServiceTest extends \PHPUnit_Framework_TestCase
 {
 
     protected $userRepository;
@@ -15,8 +19,8 @@ class BlogServiceTest extends PHPUnit_Framework_TestCase
 
     public function testItCanBeInstantiated()
     {
-        $blogService = new \Service\PostService($this->postRepository, $this->userRepository);
-        $this->assertInstanceOf('\Service\PostService',$blogService);
+        $postService = new PostService($this->postRepository, $this->userRepository);
+        $this->assertInstanceOf('\Service\PostService',$postService);
     }
 
     public function testItCanWritePost()

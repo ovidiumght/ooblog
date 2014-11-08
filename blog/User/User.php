@@ -2,7 +2,6 @@
 
 namespace User;
 
-
 use Exception\UserCannotPostException;
 use Post\Post;
 

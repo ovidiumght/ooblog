@@ -18,4 +18,4 @@ class CommentVo
     {
         return $this->comment;
     }
-} 
+}

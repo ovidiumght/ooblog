@@ -58,4 +58,10 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
         $this->page->addComment(10,$comment1);
 
     }
+
+    public function testItCanBePublished()
+    {
+        $this->post->publish();
+        $this->assertEquals(Post::STATUS_PUBLISHED, $this->post->getStatus());
+    }
 }

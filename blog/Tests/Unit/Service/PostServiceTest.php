@@ -43,6 +43,10 @@ class PostServiceTest extends \PHPUnit_Framework_TestCase
             ->method('saveUser')
             ->with($user);
 
+        $this->postRepository
+            ->expects($this->once())
+            ->method('savePost');
+
         $blogService = new \Service\PostService($this->postRepository,$this->userRepository);
 
 

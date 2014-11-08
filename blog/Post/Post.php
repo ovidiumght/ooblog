@@ -8,11 +8,16 @@ use Post\PostType\PostType;
 
 class Post
 {
+    const STATUS_PUBLISHED = 'published';
+    const STATUS_DRAFT = 'draft';
+
     protected $title;
 
     protected $comments;
 
     protected $postType;
+
+    protected $status;
 
     public function __construct($title, PostType $postType)
     {
@@ -21,9 +26,9 @@ class Post
         $this->postType = $postType;
     }
 
-    public function getTitle()
+    public function publish()
     {
-        return $this->title;
+        $this->status = self::STATUS_PUBLISHED;
     }
 
     public function addComment($userId,CommentVo $comment)
@@ -41,8 +46,18 @@ class Post
         return $this->comments;
     }
 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
     public function getType()
     {
         return $this->postType->getType();
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

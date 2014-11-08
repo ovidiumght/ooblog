@@ -8,9 +8,12 @@ class Admin extends User
 {
     protected $posts;
 
+    protected $postsCount;
+
     public function write(Post $post)
     {
         $this->posts[] = $post;
+        $this->postsCount++;
     }
 
     public function blockUserComments(User $user)
@@ -20,7 +23,7 @@ class Admin extends User
 
     public function getPostsCount()
     {
-        return count($this->posts);
+        return $this->postsCount;
     }
 
     public function getPosts()

@@ -29,7 +29,7 @@ class User
             throw new UserCannotPostException('The user is not allowed to comment on this post');
         }
 
-        $post->addComment($this->id,$comment);
+        $post->addComment($comment);
 
         return true;
     }

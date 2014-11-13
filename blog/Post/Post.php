@@ -31,7 +31,7 @@ class Post
         $this->status = self::STATUS_PUBLISHED;
     }
 
-    public function addComment($userId,CommentVo $comment)
+    public function addComment(CommentVo $comment)
     {
         if($this->postType->canPostComments()) {
             $this->comments[] = $comment;

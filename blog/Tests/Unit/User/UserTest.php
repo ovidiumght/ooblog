@@ -28,7 +28,7 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
     public function testItCanCommentOnPost()
     {
-        $comment   = new CommentVo($this->userId,'test_comment');
+        $comment   = new CommentVo('test_comment',$this->userId);
 
         $postType = new \Post\PostType\Post();
         $post = new Post(self::POST_TITLE,$postType);

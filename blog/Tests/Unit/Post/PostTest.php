@@ -33,11 +33,12 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
 
     public function testItCanAddComment()
     {
-        $comment1 = new CommentVo("test_comment 1");
-        $comment2 = new CommentVo("test_comment 2");
+        $userId = 10;
+        $comment1 = new CommentVo("test_comment 1",$userId);
+        $comment2 = new CommentVo("test_comment 2",$userId);
 
-        $this->post->addComment(10,$comment1);
-        $this->post->addComment(10,$comment2);
+        $this->post->addComment($comment1);
+        $this->post->addComment($comment2);
 
         $this->assertCount(2,$this->post->getComments());
         $this->assertSame(
@@ -53,9 +54,10 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
      */
     public function testItCannotAddCommentOnPage()
     {
-        $comment1 = new CommentVo("test_comment 1");
+        $userId = 10;
+        $comment1 = new CommentVo("test_comment 1",$userId);
 
-        $this->page->addComment(10,$comment1);
+        $this->page->addComment($comment1);
 
     }
 

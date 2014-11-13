@@ -21,17 +21,15 @@ class PostService
         $this->userRepository = $userRepository;
     }
 
-    public function post($data)
+    public function writePost($data)
     {
         $postFactory = new PostFactory();
         $post = $postFactory->create($data);
-
         $user = $this->userRepository->findUser($data['userId']);
 
         $user->write($post);
 
         $this->userRepository->saveUser($user);
-        $this->postRepository->savePost($post);
 
         return true;
     }

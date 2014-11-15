@@ -26,7 +26,7 @@ class Post implements Entity
     public function __construct($title, PostType $postType)
     {
         $this->title = $title;
-
+        $this->status = self::STATUS_DRAFT;
         $this->postType = $postType;
     }
 

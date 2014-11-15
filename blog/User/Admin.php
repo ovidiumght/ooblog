@@ -33,7 +33,7 @@ class Admin extends User
         return $this->posts;
     }
 
-    public function commentOn($post,$comment)
+    public function commentOn(Post $post, Comment $comment)
     {
         parent::commentOn($post,$comment);
         $this->approve($comment);
@@ -48,4 +48,5 @@ class Admin extends User
     {
         $comment->approve($this);
     }
+
 }

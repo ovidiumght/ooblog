@@ -62,4 +62,9 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
         $this->post->publish();
         $this->assertEquals(Post::STATUS_PUBLISHED, $this->post->getStatus());
     }
+
+    public function testStatusIsDraftWhenItsCreated()
+    {
+        $this->assertSame(Post::STATUS_DRAFT , $this->post->getStatus());
+    }
 }

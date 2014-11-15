@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Post;
 
-use Comment\CommentVo;
+use Comment\Comment;
 use Post\Post;
 use Post\PostType\Page as PagePostType;
 use Post\PostType\Post as PostPostType;
@@ -34,11 +34,11 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
     public function testItCanAddComment()
     {
         $userId = 10;
-        $comment1 = new CommentVo("test_comment 1",$userId);
-        $comment2 = new CommentVo("test_comment 2",$userId);
+        $comment1 = new Comment("test_comment 1");
+        $comment2 = new Comment("test_comment 2");
 
-        $this->post->addComment($comment1);
-        $this->post->addComment($comment2);
+        $this->post->addComment($comment1,$userId);
+        $this->post->addComment($comment2,$userId);
 
         $this->assertCount(2,$this->post->getComments());
         $this->assertSame(
@@ -48,17 +48,13 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
 
     }
 
-    /**
-     * @expectedException  \Exception\UserCannotPostException
-     *
-     */
     public function testItCannotAddCommentOnPage()
     {
-        $userId = 10;
-        $comment1 = new CommentVo("test_comment 1",$userId);
+        $this->setExpectedException('\Exception\UserCannotPostException');
+
+        $comment1 = new Comment("test_comment 1");
 
         $this->page->addComment($comment1);
-
     }
 
     public function testItCanBePublished()

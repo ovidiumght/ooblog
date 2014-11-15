@@ -2,6 +2,8 @@
 
 namespace User;
 
+use Comment\Comment;
+use Exception\CannotBlockAdminComments;
 use Post\Post;
 
 class Admin extends User
@@ -29,5 +31,21 @@ class Admin extends User
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    public function commentOn($post,$comment)
+    {
+        parent::commentOn($post,$comment);
+        $this->approve($comment);
+    }
+
+    public function blockComments()
+    {
+        throw new CannotBlockAdminComments('You cannot block an admin\'s comments');
+    }
+
+    public function approve(Comment $comment)
+    {
+        $comment->approve($this);
     }
 }

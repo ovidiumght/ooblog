@@ -3,7 +3,7 @@
 namespace Service;
 
 
-use Comment\CommentVo;
+use Comment\Comment;
 use Repository\PostRepository;
 use Repository\UserRepository;
 
@@ -24,8 +24,7 @@ class CommentService
         $post = $this->postRepository->findPost($data['postId']);
         $user = $this->userRepository->findUser($data['userId']);
 
-        $comment = new CommentVo($data['comment'],$data['userId']);
-
+        $comment = new Comment($data['comment']);
         $user->commentOn($post,$comment);
 
         $this->postRepository->savePost($post);

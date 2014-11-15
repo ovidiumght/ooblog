@@ -2,16 +2,14 @@
 
 namespace User;
 
-use Exception\UserCannotPostException;
-use Post\Post;
+use Entity\Entity;
+use Entity\Identity;
 
-class User
+class User extends Guest implements Entity
 {
-    protected $id;
+    use Identity;
 
     protected $userName;
-
-    protected $canPost = true;
 
     public function __construct($userName)
     {
@@ -21,17 +19,6 @@ class User
     public function getUsername()
     {
         return $this->userName;
-    }
-
-    public function commentOn(Post $post, $comment)
-    {
-        if(!$this->canPost) {
-            throw new UserCannotPostException('The user is not allowed to comment on this post');
-        }
-
-        $post->addComment($comment);
-
-        return true;
     }
 
     public function blockComments()

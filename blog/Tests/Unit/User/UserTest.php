@@ -3,7 +3,7 @@ namespace Tests\Unit\User;
 
 use \Post\Post;
 use \User\User;
-use \Comment\CommentVo;
+use \Comment\Comment;
 
 class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
@@ -28,7 +28,7 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
     public function testItCanCommentOnPost()
     {
-        $comment   = new CommentVo('test_comment',$this->userId);
+        $comment   = new Comment('test_comment');
 
         $postType = new \Post\PostType\Post();
         $post = new Post(self::POST_TITLE,$postType);
@@ -37,13 +37,12 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue($user->commentOn($post,$comment));
     }
 
-    /**
-     * @expectedException \Exception\UserCannotPostException
-     *
-     */
     public function testItCannotCommentIfHeIsBlocked()
     {
-        $comment = 'test_comment';
+        $this->setExpectedException('\Exception\UserCannotPostException');
+
+        $comment = new Comment('test_comment');
+
 
         $post = new Post(self::POST_TITLE, new \Post\PostType\Post());
 

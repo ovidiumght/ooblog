@@ -2,12 +2,16 @@
 
 namespace Post;
 
-use Comment\CommentVo;
+use Entity\Entity;
+use Entity\Identity;
+use Comment\Comment;
 use Exception\UserCannotPostException;
 use Post\PostType\PostType;
 
-class Post
+class Post implements Entity
 {
+    use Identity;
+
     const STATUS_PUBLISHED = 'published';
     const STATUS_DRAFT = 'draft';
 
@@ -31,7 +35,7 @@ class Post
         $this->status = self::STATUS_PUBLISHED;
     }
 
-    public function addComment(CommentVo $comment)
+    public function addComment(Comment $comment)
     {
         if($this->postType->canPostComments()) {
             $this->comments[] = $comment;
@@ -41,6 +45,9 @@ class Post
         }
     }
 
+    /**
+     * @return Comment[]
+     */
     public function getComments()
     {
         return $this->comments;

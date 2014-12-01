@@ -1,10 +1,10 @@
 <?php
 
-namespace User;
+namespace Blog\User;
 
-use Comment\Comment;
-use Exception\CannotBlockAdminComments;
-use Post\Post;
+use Blog\Comment\Comment;
+use Blog\Exception\CannotBlockAdminComments;
+use Blog\Post\Post;
 
 class Admin extends User
 {

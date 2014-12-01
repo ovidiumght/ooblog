@@ -1,10 +1,10 @@
 <?php
 
-namespace User;
+namespace Blog\User;
 
-use Post\Post;
-use Comment\Comment;
-use Exception\UserCannotPostException;
+use Blog\Post\Post;
+use Blog\Comment\Comment;
+use Blog\Exception\UserCannotPostException;
 
 class Guest
 {

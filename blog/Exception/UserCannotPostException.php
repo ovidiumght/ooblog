@@ -1,6 +1,6 @@
 <?php
 
-namespace Exception;
+namespace Blog\Exception;
 
 
 class UserCannotPostException extends \Exception

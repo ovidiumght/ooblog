@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Service;
 
-use Service\PostService;
+use Blog\Service\PostService;
 
 class PostServiceTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,14 +13,14 @@ class PostServiceTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->userRepository = $this->getMock('\Repository\UserRepository');
-        $this->postRepository = $this->getMock('\Repository\PostRepository');
+        $this->userRepository = $this->getMock('\Blog\Repository\UserRepository');
+        $this->postRepository = $this->getMock('\Blog\Repository\PostRepository');
     }
 
     public function testItCanBeInstantiated()
     {
         $postService = new PostService($this->postRepository, $this->userRepository);
-        $this->assertInstanceOf('\Service\PostService',$postService);
+        $this->assertInstanceOf('\Blog\Service\PostService',$postService);
     }
 
     public function testItCanWritePost()
@@ -30,7 +30,7 @@ class PostServiceTest extends \PHPUnit_Framework_TestCase
         $data['userId'] = $userId;
         $data['title']  = 'Test Post';
 
-        $user = new \User\Admin($username);
+        $user = new \Blog\User\Admin($username);
 
         $this->userRepository
             ->expects($this->once())
@@ -44,7 +44,7 @@ class PostServiceTest extends \PHPUnit_Framework_TestCase
             ->with($user);
 
 
-        $blogService = new \Service\PostService($this->postRepository,$this->userRepository);
+        $blogService = new \Blog\Service\PostService($this->postRepository,$this->userRepository);
 
         $this->assertTrue($blogService->writePost($data));
     }

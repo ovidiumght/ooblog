@@ -1,10 +1,10 @@
 <?php
 
-namespace Comment;
+namespace Blog\Comment;
 
-use Entity\Entity;
-use Entity\Identity;
-use User\Admin;
+use Blog\Entity\Entity;
+use Blog\Entity\Identity;
+use Blog\User\Admin;
 
 class Comment implements Entity
 {

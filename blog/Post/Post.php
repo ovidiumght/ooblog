@@ -1,12 +1,12 @@
 <?php
 
-namespace Post;
+namespace Blog\Post;
 
-use Entity\Entity;
-use Entity\Identity;
-use Comment\Comment;
-use Exception\UserCannotPostException;
-use Post\PostType\PostType;
+use Blog\Entity\Entity;
+use Blog\Entity\Identity;
+use Blog\Comment\Comment;
+use Blog\Exception\UserCannotPostException;
+use Blog\Post\PostType\PostType;
 
 class Post implements Entity
 {

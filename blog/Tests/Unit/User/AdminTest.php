@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\User;
 
-use Comment\Comment;
-use Post\Post;
-use User\Admin;
-use User\User;
+use Blog\Comment\Comment;
+use Blog\Post\Post;
+use Blog\User\Admin;
+use Blog\User\User;
 
 class AdminTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,9 +24,9 @@ class AdminTest extends \PHPUnit_Framework_TestCase
 
     public function testItCanBlockUserComments()
     {
-        $this->setExpectedException('\Exception\UserCannotPostException');
+        $this->setExpectedException('\Blog\Exception\UserCannotPostException');
 
-        $postType = new \Post\PostType\Post();
+        $postType = new \Blog\Post\PostType\Post();
         $user = new User('bad_user');
         $post = new Post('Test Post',$postType);
 
@@ -37,7 +37,7 @@ class AdminTest extends \PHPUnit_Framework_TestCase
 
     public function testItCannotBlockAdminComments()
     {
-        $this->setExpectedException('\Exception\CannotBlockAdminComments');
+        $this->setExpectedException('\Blog\Exception\CannotBlockAdminComments');
 
         $otherAdmin = new Admin(self::OTHER_ADMIN_USERNAME);
         $this->admin->blockComments($otherAdmin);
@@ -75,7 +75,7 @@ class AdminTest extends \PHPUnit_Framework_TestCase
     public function testThatAdminCommentsAreApprovedByDefault()
     {
         $comment = new Comment("Test Comment");
-        $post    = new Post('Test title',new \Post\PostType\Post());
+        $post    = new Post('Test title',new \Blog\Post\PostType\Post());
 
         $this->admin->commentOn($post,$comment);
 
@@ -88,7 +88,7 @@ class AdminTest extends \PHPUnit_Framework_TestCase
      */
     protected function writePost($postTitle)
     {
-        $post = new Post($postTitle, new \Post\PostType\Post());
+        $post = new Post($postTitle, new \Blog\Post\PostType\Post());
         $this->admin->write($post);
         return $post;
     }

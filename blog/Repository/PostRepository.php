@@ -1,8 +1,8 @@
 <?php
 
-namespace Repository;
+namespace Blog\Repository;
 
-use Post\Post;
+use Blog\Post\Post;
 
 interface PostRepository {
 

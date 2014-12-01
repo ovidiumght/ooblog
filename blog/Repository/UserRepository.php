@@ -1,9 +1,9 @@
 <?php
 
-namespace Repository;
+namespace Blog\Repository;
 
-use User\Admin;
-use User\User;
+use Blog\User\Admin;
+use Blog\User\User;
 
 interface UserRepository {
 

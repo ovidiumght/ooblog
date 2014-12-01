@@ -1,10 +1,10 @@
 <?php
 
-namespace Service;
+namespace Blog\Service;
 
-use Factory\PostFactory;
-use Repository\PostRepository;
-use Repository\UserRepository;
+use Blog\Factory\PostFactory;
+use Blog\Repository\PostRepository;
+use Blog\Repository\UserRepository;
 
 class PostService
 {

@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Post\PostType;
 
-use Post\PostType\Page;
-use Post\PostType\PostType;
+use Blog\Post\PostType\Page;
+use Blog\Post\PostType\PostType;
 
 
 class PageTest extends \PHPUnit_Framework_TestCase

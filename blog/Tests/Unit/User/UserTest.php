@@ -1,20 +1,19 @@
 <?php
 namespace Tests\Unit\User;
 
-use \Post\Post;
-use \User\User;
-use \Comment\Comment;
+use \Blog\Post\Post;
+use \Blog\User\User;
+use \Blog\Comment\Comment;
 
 class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
     const POST_TITLE = "TEST POST TITLE";
+    const USER_ID = 10;
 
     protected $username = 'test_username';
 
-    /** @var  \User\User */
+    /** @var  \Blog\User\User */
     protected $user;
-
-    protected $userId = 10;
 
     public function setUp()
     {
@@ -30,7 +29,7 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
     {
         $comment   = new Comment('test_comment');
 
-        $postType = new \Post\PostType\Post();
+        $postType = new \Blog\Post\PostType\Post();
         $post = new Post(self::POST_TITLE,$postType);
         $user = new User($this->username);
 
@@ -39,15 +38,21 @@ class UserEntityTest extends \PHPUnit_Framework_TestCase {
 
     public function testItCannotCommentIfHeIsBlocked()
     {
-        $this->setExpectedException('\Exception\UserCannotPostException');
+        $this->setExpectedException('\Blog\Exception\UserCannotPostException');
 
         $comment = new Comment('test_comment');
 
 
-        $post = new Post(self::POST_TITLE, new \Post\PostType\Post());
+        $post = new Post(self::POST_TITLE, new \Blog\Post\PostType\Post());
 
         $this->user->blockComments();
         $this->user->commentOn($post,$comment);
+    }
+
+    public function testItHasId()
+    {
+        $this->user->setId(self::USER_ID);
+        $this->assertSame(self::USER_ID,$this->user->getId());
     }
 
 }

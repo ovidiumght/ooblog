@@ -1,9 +1,9 @@
 <?php
 
-namespace User;
+namespace Blog\User;
 
-use Entity\Entity;
-use Entity\Identity;
+use Blog\Entity\Entity;
+use Blog\Entity\Identity;
 
 class User extends Guest implements Entity
 {

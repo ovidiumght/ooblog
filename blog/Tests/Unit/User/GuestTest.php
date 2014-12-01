@@ -2,11 +2,9 @@
 
 namespace Unit\User;
 
-
-use Comment\Comment;
-use Post\Post;
-use Service\CommentService;
-use User\Guest;
+use Blog\Comment\Comment;
+use Blog\Post\Post;
+use Blog\User\Guest;
 
 class GuestTest extends \PHPUnit_Framework_TestCase {
 
@@ -20,12 +18,12 @@ class GuestTest extends \PHPUnit_Framework_TestCase {
 
     public function testItCanBeInstantiated()
     {
-        $this->assertInstanceOf('User\Guest',$this->guest);
+        $this->assertInstanceOf('Blog\User\Guest',$this->guest);
     }
 
     public function testItReturnsTrueWhenItCommentsOnAPost()
     {
-        $post = new Post("test post",new \Post\PostType\Post());
+        $post = new Post("test post",new \Blog\Post\PostType\Post());
 
         $result = $this->guest->commentOn($post,new Comment("Test Comment"));
 

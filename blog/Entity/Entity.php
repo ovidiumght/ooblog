@@ -1,10 +1,12 @@
 <?php
 
-namespace Entity;
+namespace Blog\Entity;
 
 
 interface Entity {
 
     public function getId();
+
+    public function setId($id);
 
 }

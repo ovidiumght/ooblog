@@ -1,8 +1,8 @@
 <?php
-namespace Tests\Unit\Comment;
+namespace Blog\Tests\Unit\Comment;
 
-use Comment\Comment;
-use User\Admin;
+use Blog\Comment\Comment;
+use Blog\User\Admin;
 
 class CommentTest extends \PHPUnit_Framework_TestCase
 {

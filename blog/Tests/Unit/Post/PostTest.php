@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Post;
 
-use Comment\Comment;
-use Post\Post;
-use Post\PostType\Page as PagePostType;
-use Post\PostType\Post as PostPostType;
+use Blog\Comment\Comment;
+use Blog\Post\Post;
+use Blog\Post\PostType\Page as PagePostType;
+use Blog\Post\PostType\Post as PostPostType;
 
 class PostEntityTest extends \PHPUnit_Framework_TestCase {
 
@@ -50,7 +50,7 @@ class PostEntityTest extends \PHPUnit_Framework_TestCase {
 
     public function testItCannotAddCommentOnPage()
     {
-        $this->setExpectedException('\Exception\UserCannotPostException');
+        $this->setExpectedException('\Blog\Exception\UserCannotPostException');
 
         $comment1 = new Comment("test_comment 1");
 

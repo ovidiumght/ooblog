@@ -1,6 +1,6 @@
 <?php
 
-namespace Post\PostType;
+namespace Blog\Post\PostType;
 
 class Page implements PostType
 {

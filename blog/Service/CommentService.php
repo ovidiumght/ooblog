@@ -1,11 +1,10 @@
 <?php
 
-namespace Service;
+namespace Blog\Service;
 
-
-use Comment\Comment;
-use Repository\PostRepository;
-use Repository\UserRepository;
+use Blog\Comment\Comment;
+use Blog\Repository\PostRepository;
+use Blog\Repository\UserRepository;
 
 class CommentService
 {

@@ -2,10 +2,10 @@
 
 namespace Unit\Service;
 
-use Post\Post;
-use Service\CommentService;
-use User\Guest;
-use User\User;
+use Blog\Post\Post;
+use Blog\Service\CommentService;
+use Blog\User\Guest;
+use Blog\User\User;
 
 class CommentServiceTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,12 +31,12 @@ class CommentServiceTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->user = new User('testuser');
-        $this->post = new Post('testpost',new \Post\PostType\Post());
+        $this->post = new Post('testpost',new \Blog\Post\PostType\Post());
 
         $this->guest = new Guest();
 
-        $this->postRepository = $this->getMock('\Repository\PostRepository');
-        $this->userRepository = $this->getMock('\Repository\UserRepository');
+        $this->postRepository = $this->getMock('\Blog\Repository\PostRepository');
+        $this->userRepository = $this->getMock('\Blog\Repository\UserRepository');
 
         $this->commentService = new CommentService($this->postRepository,$this->userRepository);
 

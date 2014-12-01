@@ -1,8 +1,8 @@
 <?php
 
-namespace Factory;
+namespace Blog\Factory;
 
-use Post\Post;
+use Blog\Post\Post;
 
 class PostFactory
 {
@@ -13,10 +13,10 @@ class PostFactory
         }
 
         if($data['type'] == 'page') {
-            $postType = new \Post\PostType\Page();
+            $postType = new \Blog\Post\PostType\Page();
         }
         else {
-            $postType = new \Post\PostType\Post();
+            $postType = new \Blog\Post\PostType\Post();
         }
 
         return new Post($data['title'], $postType);

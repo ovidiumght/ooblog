@@ -1,6 +1,8 @@
 <?php
 
-class PostFactoryTest extends PHPUnit_Framework_TestCase
+namespace Blog\Tests\Unit\Factory;
+
+class PostFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var  \Blog\Factory\PostFactory */
     protected $factory;

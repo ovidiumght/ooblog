@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit\User;
+namespace Blog\Tests\Unit\User;
 
 use Blog\Comment\Comment;
 use Blog\Post\Post;

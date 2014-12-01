@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Post\PostType;
+namespace Blog\Tests\Unit\Post\PostType;
 
 use Blog\Post\PostType\Post;
 use Blog\Post\PostType\PostType;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Service;
+namespace Blog\Tests\Unit\Service;
 
 use Blog\Service\PostService;
 

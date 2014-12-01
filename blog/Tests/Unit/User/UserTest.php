@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Unit\User;
+namespace Blog\Tests\Unit\User;
 
 use \Blog\Post\Post;
 use \Blog\User\User;

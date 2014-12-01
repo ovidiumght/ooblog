@@ -6,7 +6,7 @@
     "autoload": {
         "psr-4": {
             "Blog\\": "blog/",
-            "DoctrineRepository\\": "DoctrineRepository"
+            "Db\\": "db/"
         }
     },
     "require": {

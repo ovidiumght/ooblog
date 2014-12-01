@@ -4,10 +4,15 @@
     "type": "project",
     "description": "OOP Blog",
     "autoload": {
-        "psr-0": { "": "blog/" }
+        "psr-4": {
+            "Blog\\": "blog/",
+            "DoctrineRepository\\": "DoctrineRepository"
+        }
     },
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "silex/silex": "~1.2",
+        "doctrine/dbal": "2.3.5"
     },
     "scripts": {
         "post-install-cmd": [

@@ -3,6 +3,8 @@
 namespace Unit\Service;
 
 use Blog\Post\Post;
+use Blog\Repository\PostRepository;
+use Blog\Repository\UserRepository;
 use Blog\Service\CommentService;
 use Blog\User\Guest;
 use Blog\User\User;
@@ -13,10 +15,13 @@ class CommentServiceTest extends \PHPUnit_Framework_TestCase
     const POST_ID = 20;
     const GUEST_ID = null;
 
+    /** @var  CommentService */
     protected $commentService;
 
+    /** @var  PostRepository | \PHPUnit_Framework_MockObject_MockObject */
     protected $postRepository;
 
+    /** @var  UserRepository | \PHPUnit_Framework_MockObject_MockObject */
     protected $userRepository;
 
     /** @var  Post */
